@@ -1,4 +1,5 @@
 # Ignorar directorios data y models
 data/
 models/
-
+results/
+*.pth
