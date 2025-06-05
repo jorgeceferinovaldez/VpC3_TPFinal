@@ -47,7 +47,7 @@ El proyecto utiliza Vision Transformers (específicamente Swin Transformer) para
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/jorgeceferinovaldez/VpC3_TPFinal.git
 cd mvtec-anomaly-detection
 ```
 
