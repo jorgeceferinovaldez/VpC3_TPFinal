@@ -1,0 +1,82 @@
+{
+  "multiclass_accuracy": 0.9902777777777778,
+  "confusion_matrix": [
+    [
+      118,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      120,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      119,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      120,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      118,
+      1
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0,
+      118
+    ]
+  ],
+  "anomaly_detection_results": {
+    "Hybrid (Paper Method)": {
+      "roc_auc": 0.9995972222222222,
+      "avg_precision": 0.9999176436866274,
+      "binary_accuracy": 0.9972222222222222,
+      "optimal_threshold": 0.5562691688537598
+    },
+    "Cosine Similarity": {
+      "roc_auc": 0.9995833333333333,
+      "avg_precision": 0.9999147299337137,
+      "binary_accuracy": 0.9972222222222222,
+      "optimal_threshold": 0.36626267433166504
+    },
+    "Classification Confidence": {
+      "roc_auc": 0.9999305555555555,
+      "avg_precision": 0.99998608784677,
+      "binary_accuracy": 0.9916666666666667,
+      "optimal_threshold": 0.9979984164237976
+    }
+  },
+  "class_distribution": {
+    "folding_marks": 120,
+    "grain_off": 120,
+    "growth_marks": 120,
+    "loose_grain": 120,
+    "non_defective": 120,
+    "pinhole": 120
+  },
+  "total_samples": 720
+}

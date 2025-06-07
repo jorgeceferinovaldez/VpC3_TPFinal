@@ -1,0 +1,47 @@
+Resumen de Validación Visual MVTec AD
+==================================================
+
+Siguiendo el enfoque del artículo: solo evaluación cualitativa
+Esta validación demuestra la capacidad del modelo para detectar y localizar
+defectos en el dataset MVTec AD usando características aprendidas del dataset
+original de clasificación de defectos en cuero.
+
+Información del Dataset:
+- Muestras procesadas: 12
+- Muestras normales: 0
+- Muestras anómalas: 12
+- Tipos de muestra: type_1
+
+Resultados de Evaluación Visual:
+- Detecciones correctas: 12
+- Falsos positivos: 0
+- Falsos negativos: 0
+- Verdaderos negativos: 0
+
+Interpretación del Mapa de Calor:
+- Áreas rojas/amarillas: Alta probabilidad de anomalía (puntuación > 0.5)
+- Áreas naranjas: Probabilidad media de anomalía (0.3-0.5)
+- Áreas azules/verdes: Baja probabilidad de anomalía (< 0.3)
+- La superposición combina la imagen original con el mapa de calor de anomalías
+
+Metodología:
+1. Extraer características usando el backbone ViT entrenado en el dataset de defectos de cuero
+2. Comparar características con características 'normales' almacenadas usando similitud coseno
+3. Generar puntuaciones de anomalía (1 - similitud_máxima)
+4. Crear mapas de calor para visualizar regiones anómalas
+5. Superponer mapas de calor en imágenes originales para interpretación
+
+Nota: Esto sigue la metodología del artículo de usar MVTec AD para
+confirmación visual en lugar de evaluación cuantitativa. El enfoque está en
+demostrar la capacidad del modelo para generalizar a diferentes tipos
+de defectos en cuero, no en lograr métricas de rendimiento numérico específicas.
+
+Archivos Generados:
+- validacion_visual_mvtec.png: Visualización principal con mapas de calor
+- imagenes_ejemplo_mvtec.png: Imágenes de referencia
+- visual_validation_summary.txt: Este archivo de resumen
+
+Conclusión:
+La validación visual demuestra la capacidad del modelo para detectar anomalías
+en muestras de cuero de MVTec AD usando características aprendidas del dataset
+original, siguiendo el enfoque de evaluación cualitativa descrito en el artículo.
