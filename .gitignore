@@ -1,4 +1,12 @@
 # Ignorar directorios data y models
+data_mvec/
 data/
 models/
+vpc3/
+results/*.pth
 
+
+# Ignore model files
+*.pth
+*.pt
+*.h5
