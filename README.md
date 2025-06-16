@@ -27,7 +27,7 @@ Este proyecto implementa un sistema de detección de anomalías en superficies d
 - **Arquitectura ViT-Base/16** con cabeza de clasificación personalizada
 - **Pipeline completo** desde descarga de datos hasta visualización de resultados
 
-### **El proyecto sigue la metodología del paper original, utilizando el dataset de Kaggle para entrenamiento y MVTec AD para validación visual cualitativa de la capacidad de generalización del modelo.**
+**El proyecto sigue la metodología del paper original, utilizando el dataset de Kaggle para entrenamiento y MVTec AD para validación visual cualitativa de la capacidad de generalización del modelo.**
 
 ## Estructura del Proyecto
 
