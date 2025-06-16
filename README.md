@@ -6,13 +6,14 @@
 
 # Visión por Computadora 3
 
-# Trabajo Práctico Número 3
+# Trabajo Práctico Final
 
 ---
 # Integrantes:
    - **Jorge Ceferino Valdez**
    - **Matías Marando**
    - **Fabian Sarmiento**
+   - **Christopher Charaf**
 
 ---
 
@@ -26,7 +27,7 @@ Este proyecto implementa un sistema de detección de anomalías en superficies d
 - **Arquitectura ViT-Base/16** con cabeza de clasificación personalizada
 - **Pipeline completo** desde descarga de datos hasta visualización de resultados
 
-El proyecto sigue la metodología del paper original, utilizando el dataset de Kaggle para entrenamiento y MVTec AD para validación visual cualitativa de la capacidad de generalización del modelo.
+### **El proyecto sigue la metodología del paper original, utilizando el dataset de Kaggle para entrenamiento y MVTec AD para validación visual cualitativa de la capacidad de generalización del modelo.**
 
 ## Estructura del Proyecto
 
@@ -396,8 +397,6 @@ logs/best_modelo_kaggle_dataset/
 - **ROC AUC (Confianza Clasificación)**: 0.80-0.92
 - **Binary Accuracy**: 85-95%
 
-### Interpretación de Resultados
-
 #### Archivos JSON de Resultados
 ```json
 {
@@ -421,6 +420,40 @@ logs/best_modelo_kaggle_dataset/
 - **Superposición**: Combinación imagen original + detección
 - **Análisis cualitativo**: Sin métricas cuantitativas (siguiendo paper)
 - **Detecciones correctas**: Número de anomalías detectadas correctamente
+
+## Métricas Obtenidas  
+### Evaluación Integral de entrenamiento - Kaggle
+![Evaluación Integral](reports/best_modelo_kaggle_dataset/resultados_multiclase/evaluacion_integral.png)
+
+### Curva de Precisión en Validación - Kaggle
+![Accuracy en Validación](reports/best_modelo_kaggle_dataset/resultados_multiclase/acc_val.png)
+
+### Evaluación visual sobre categoria "Leather" de mvtec
+![Validación visual sobre MVTec - Leather](reports/best_modelo_kaggle_dataset/resultados_mvtec_visual/validacion_visual_mvtec.png)
+### Conclusiones y definiciones
+
+Interpretación del Mapa de Calor:
+- Áreas rojas/amarillas: Alta probabilidad de anomalía (puntuación > 0.5)
+- Áreas naranjas: Probabilidad media de anomalía (0.3-0.5)
+- Áreas azules/verdes: Baja probabilidad de anomalía (< 0.3)
+- La superposición combina la imagen original con el mapa de calor de anomalías
+
+Metodología:
+1. Extraer características usando el backbone ViT entrenado en el dataset de defectos de cuero
+2. Comparar características con características 'normales' almacenadas usando similitud coseno
+3. Generar puntuaciones de anomalía (1 - similitud_máxima)
+4. Crear mapas de calor para visualizar regiones anómalas
+5. Superponer mapas de calor en imágenes originales para interpretación
+
+Nota: Esto sigue la metodología del artículo de usar MVTec AD para
+confirmación visual en lugar de evaluación cuantitativa. El enfoque está en
+demostrar la capacidad del modelo para generalizar a diferentes tipos
+de defectos en cuero, no en lograr métricas de rendimiento numérico específicas.
+
+Conclusión:
+La validación visual demuestra la capacidad del modelo para detectar anomalías
+en muestras de cuero de MVTec AD usando características aprendidas del dataset
+original, siguiendo el enfoque de evaluación cualitativa descrito en el artículo.
 
 ## Requisitos del Sistema
 
