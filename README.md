@@ -75,7 +75,7 @@ leather_anomaly/
 1. **Clonar el repositorio**
 ```bash
 git clone https://github.com/jorgeceferinovaldez/VpC3_TPFinal.git
-cd leather_anomaly
+cd VpC3_TPFinal
 ```
 
 2. **Crear entorno virtual**
