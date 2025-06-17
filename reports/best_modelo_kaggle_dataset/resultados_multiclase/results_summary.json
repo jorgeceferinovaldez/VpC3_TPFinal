@@ -1,29 +1,29 @@
 {
-  "multiclass_accuracy": 0.9902777777777778,
+  "multiclass_accuracy": 0.9930555555555556,
   "confusion_matrix": [
     [
-      118,
-      2,
-      0,
-      0,
-      0,
-      0
-    ],
-    [
-      0,
-      120,
-      0,
-      0,
-      0,
-      0
-    ],
-    [
-      0,
-      0,
       119,
       0,
       0,
+      0,
+      0,
       1
+    ],
+    [
+      0,
+      118,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      120,
+      0,
+      0,
+      0
     ],
     [
       0,
@@ -36,10 +36,10 @@
     [
       0,
       0,
-      1,
       0,
-      118,
-      1
+      0,
+      120,
+      0
     ],
     [
       1,
@@ -52,22 +52,22 @@
   ],
   "anomaly_detection_results": {
     "Hybrid (Paper Method)": {
-      "roc_auc": 0.9995972222222222,
-      "avg_precision": 0.9999176436866274,
-      "binary_accuracy": 0.9972222222222222,
-      "optimal_threshold": 0.5562691688537598
+      "roc_auc": 1.0,
+      "avg_precision": 1.0,
+      "binary_accuracy": 0.9986111111111111,
+      "optimal_threshold": 0.29472360014915466
     },
     "Cosine Similarity": {
-      "roc_auc": 0.9995833333333333,
-      "avg_precision": 0.9999147299337137,
+      "roc_auc": 0.9999861111111111,
+      "avg_precision": 0.9999972268441486,
       "binary_accuracy": 0.9972222222222222,
-      "optimal_threshold": 0.36626267433166504
+      "optimal_threshold": 0.3348463177680969
     },
     "Classification Confidence": {
-      "roc_auc": 0.9999305555555555,
-      "avg_precision": 0.99998608784677,
-      "binary_accuracy": 0.9916666666666667,
-      "optimal_threshold": 0.9979984164237976
+      "roc_auc": 1.0,
+      "avg_precision": 1.0,
+      "binary_accuracy": 0.9986111111111111,
+      "optimal_threshold": 0.431333065032959
     }
   },
   "class_distribution": {

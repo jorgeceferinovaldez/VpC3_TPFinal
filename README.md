@@ -74,7 +74,7 @@ leather_anomaly/
 
 1. **Clonar el repositorio**
 ```bash
-git clone <repository-url>
+git clone https://github.com/jorgeceferinovaldez/VpC3_TPFinal.git
 cd leather_anomaly
 ```
 

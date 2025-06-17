@@ -45,3 +45,4 @@ Conclusión:
 La validación visual demuestra la capacidad del modelo para detectar anomalías
 en muestras de cuero de MVTec AD usando características aprendidas del dataset
 original, siguiendo el enfoque de evaluación cualitativa descrito en el artículo.
+
