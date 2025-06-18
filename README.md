@@ -16,7 +16,7 @@
    - **Christopher Charaf**
 
 ---
-## Introduccion y planteamiento del problema
+## Introducción y planteamiento del problema
 Este trabajo práctico final aborda la problemática de la detección automática de defectos en superficies de cuero, un desafío relevante en la industria manufacturera donde la inspección visual manual resulta costosa, subjetiva y propensa a errores. El objetivo principal es desarrollar un sistema basado en aprendizaje profundo que permita identificar y clasificar distintos tipos de anomalías en cuero, mejorando la eficiencia y precisión del control de calidad.
 
 Para ello, se implementa una solución que utiliza Vision Transformers (ViT), una arquitectura de última generación en visión por computadora, adaptada tanto para la clasificación multi-clase de defectos como para la detección de anomalías. El enfoque sigue la metodología propuesta en el paper "ViT for Anomaly Detection and Localisation in Leather Surface Defect", combinando técnicas de transferencia de aprendizaje, extracción de características y métodos híbridos de scoring.
@@ -50,29 +50,29 @@ leather_anomaly/
 ├── 2.0-EDA-Leather-Defect-dataset.ipynb  # Análisis exploratorio del dataset de defectos de cuero
 ├── 3.0-EDA-MVTec-dataset.ipynb           # Análisis exploratorio del dataset MVTec AD
 ├── 4.0.model-training.ipynb              # Entrenamiento del modelo ViT y evaluación
-├── data/                              # Directorio de datos
-│   ├── leather_defect_classification/ # Dataset principal de defectos de cuero
-│   │   ├── folding_marks/            # Imágenes con marcas de doblado
-│   │   ├── grain_off/                # Imágenes con defectos de textura
-│   │   ├── growth_marks/             # Imágenes con marcas de crecimiento
-│   │   ├── loose_grains/             # Imágenes con granulado suelto
-│   │   ├── pinhole/                  # Imágenes con perforaciones
-│   │   └── non_defective/            # Imágenes sin defectos
-│   └── mvtec/                        # Dataset MVTec AD para validación
-│       ├── bottle/                   # Categoría botellas
-│       ├── cable/                    # Categoría cables
-│       ├── leather/                  # Categoría cuero
-│       └── ...                       # Otras categorías
-├── logs/                             # Logs de TensorBoard
-│   └── best_modelo_kaggle_dataset/   # Logs del modelo entrenado
-├── models/                           # Modelos entrenados
-│   └── best_modelo_kaggle_dataset.pth # Mejor modelo guardado
-├── references/                       # Referencias y documentación
+├── data/                                 # Directorio de datos
+│   ├── leather_defect_classification/    # Dataset principal de defectos de cuero
+│   │   ├── folding_marks/                # Imágenes con marcas de doblado
+│   │   ├── grain_off/                    # Imágenes con defectos de textura
+│   │   ├── growth_marks/                 # Imágenes con marcas de crecimiento
+│   │   ├── loose_grains/                 # Imágenes con granulado suelto
+│   │   ├── pinhole/                      # Imágenes con perforaciones
+│   │   └── non_defective/                # Imágenes sin defectos
+│   └── mvtec/                            # Dataset MVTec AD para validación
+│       ├── bottle/                       # Categoría botellas
+│       ├── cable/                        # Categoría cables
+│       ├── leather/                      # Categoría cuero
+│       └── ...                           # Otras categorías
+├── logs/                                 # Logs de TensorBoard
+│   └── best_modelo_kaggle_dataset/       # Logs del modelo entrenado
+├── models/                               # Modelos entrenados
+│   └── best_modelo_kaggle_dataset.pth    # Mejor modelo guardado
+├── references/                           # Referencias y documentación
 │   └── ViT_for_Anomaly_Detection_and_Localisation_in_Leather_Surface_Defect.pdf
-├── reports/                          # Reportes y visualizaciones
-│   └── best_modelo_kaggle_dataset/   # Resultados del modelo
-├── requirements.txt                  # Dependencias del proyecto
-└── README.md                         # Este archivo
+├── reports/                              # Reportes y visualizaciones
+│   └── best_modelo_kaggle_dataset/       # Resultados del modelo
+├── requirements.txt                      # Dependencias del proyecto
+└── README.md                             # Este archivo
 ```
 
 ## Instalación
@@ -113,7 +113,7 @@ python -c "import torch; print(f'CUDA disponible: {torch.cuda.is_available()}')"
 ### 1. Leather Defect Classification Dataset (Kaggle)
 - **Fuente**: [Kaggle Leather Defect Classification](https://www.kaggle.com/datasets/praveen2084/leather-defect-classification)
 - **Descripción**: Dataset principal para entrenamiento del modelo con 6 categorías de defectos en cuero
-- **Clases**: 
+- **Clases**:
   - `folding_marks`: Marcas de doblado en la superficie
   - `grain_off`: Defectos en la textura del grano
   - `growth_marks`: Marcas naturales de crecimiento
@@ -220,7 +220,7 @@ transform = transforms.Compose([
     transforms.Resize((224, 224)),    # Redimensionar a 224x224
     transforms.ToTensor(),            # Convertir a tensor
     transforms.Normalize(             # Normalización ImageNet
-        mean=[0.485, 0.456, 0.406], 
+        mean=[0.485, 0.456, 0.406],
         std=[0.229, 0.224, 0.225]
     ),
 ])
@@ -239,7 +239,7 @@ class ViTMultiClassClassifier(nn.Module):
             pretrained=pretrained,
             num_classes=0  # Sin cabeza de clasificación
         )
-        
+
         # Cabeza de clasificación personalizada
         self.classifier = nn.Sequential(
             nn.Dropout(0.1),
@@ -345,7 +345,7 @@ class ViTMultiClassClassifier(nn.Module):
 transforms.Resize((224, 224))           # Redimensionado
 transforms.ToTensor()                   # Conversión a tensor
 transforms.Normalize(                   # Normalización ImageNet
-    mean=[0.485, 0.456, 0.406], 
+    mean=[0.485, 0.456, 0.406],
     std=[0.229, 0.224, 0.225]
 )
 ```
@@ -371,7 +371,7 @@ transforms.Normalize(                   # Normalización ImageNet
 
 ```
 reports/best_modelo_kaggle_dataset/
-├── resultados_multiclase/                    # Resultados clasificación 6 clases
+├── resultados_multiclase/                   # Resultados clasificación 6 clases
 │   ├── matriz_de_confusion_multiclase.png   # Matriz de confusión visual
 │   ├── evaluacion_integral.png              # Análisis completo de rendimiento
 │   ├── ejemplos_multiclase.png              # Ejemplos de clasificación
@@ -434,17 +434,17 @@ logs/best_modelo_kaggle_dataset/
 - **Análisis cualitativo**: Sin métricas cuantitativas (siguiendo paper)
 - **Detecciones correctas**: Número de anomalías detectadas correctamente
 
-## Métricas Obtenidas  
+## Métricas Obtenidas
 ### Evaluación Integral de entrenamiento - Kaggle
 ![Evaluación Integral](reports/best_modelo_kaggle_dataset/resultados_multiclase/evaluacion_integral.png)
 
 ### Curva de Precisión en Validación - Kaggle
 ![Accuracy en Validación](reports/best_modelo_kaggle_dataset/resultados_multiclase/acc_val.png)
 
-### Evaluación visual sobre categoria "Leather" de mvtec
+### Evaluación visual sobre categoría "Leather" de MVTec
 ![Validación visual sobre MVTec - Leather](reports/best_modelo_kaggle_dataset/resultados_mvtec_visual/validacion_visual_mvtec.png)
 
-## Interpretacion y análisis de resultados
+## Interpretación y análisis de resultados
 
 Interpretación del Mapa de Calor:
 - Áreas rojas/amarillas: Alta probabilidad de anomalía (puntuación > 0.5)
@@ -452,10 +452,10 @@ Interpretación del Mapa de Calor:
 - Áreas azules/verdes: Baja probabilidad de anomalía (< 0.3)
 - La superposición combina la imagen original con el mapa de calor de anomalías
 
-#### - Entrenamiento y validacion con el dataset de Kaggle 
+#### - Entrenamiento y validación con el dataset de Kaggle
 Los resultados obtenidos muestran un desempeño robusto del modelo ViT en la tarea de clasificación multi-clase y detección de anomalías en superficies de cuero. En la evaluación sobre el dataset de Kaggle, el modelo alcanzó una precisión general superior al 90%, con valores de F1-score y recall elevados en la mayoría de las clases, lo que indica una buena capacidad para distinguir entre los diferentes tipos de defectos y la clase no defectuosa. La matriz de confusión revela que las confusiones principales se producen entre defectos visualmente similares, como "grain_off" y "loose_grains", aunque la tasa de error sigue siendo baja.
 
-#### - Evaluacion sobre dataset de MVTec
+#### - Evaluación sobre dataset de MVTec
 En la detección de anomalías, el método híbrido propuesto logra un ROC AUC cercano a 0.95, superando a los métodos basados únicamente en similitud coseno o confianza de clasificación. Esto valida la efectividad de combinar ambas estrategias para mejorar la discriminación entre muestras normales y anómalas. Los histogramas de puntuaciones y las curvas ROC muestran una clara separación entre ambas clases, permitiendo establecer umbrales de decisión efectivos.
 
 
@@ -463,15 +463,15 @@ En la detección de anomalías, el método híbrido propuesto logra un ROC AUC c
 
 Los resultados obtenidos demuestran que la metodología basada en Vision Transformers es altamente efectiva para la detección y clasificación de defectos en superficies de cuero, alcanzando métricas de precisión y robustez competitivas tanto en clasificación multi-clase como en detección de anomalías. La validación visual sobre el dataset MVTec AD confirma la capacidad del modelo para generalizar a defectos no vistos y diferentes dominios, siguiendo el enfoque cualitativo propuesto en el paper.
 
-Esta metodología, que combina extracción de características profundas, transfer learning y métodos híbridos de scoring para validacion, es fácilmente adaptable a otros escenarios industriales donde la inspección visual automatizada es crítica. Puede aplicarse a la detección de anomalías en distintos materiales, productos manufacturados o procesos de control de calidad, siempre que se disponga de datos representativos y se ajuste el pipeline a las particularidades del nuevo dominio. La modularidad del enfoque y el uso de arquitecturas modernas como ViT facilitan su extensión y escalabilidad para futuros trabajos en visión por computadora industrial.
+Esta metodología, que combina extracción de características profundas, transfer learning y métodos híbridos de scoring para validación, es fácilmente adaptable a otros escenarios industriales donde la inspección visual automatizada es crítica. Puede aplicarse a la detección de anomalías en distintos materiales, productos manufacturados o procesos de control de calidad, siempre que se disponga de datos representativos y se ajuste el pipeline a las particularidades del nuevo dominio. La modularidad del enfoque y el uso de arquitecturas modernas como ViT facilitan su extensión y escalabilidad para futuros trabajos en visión por computadora industrial.
 
 ## Limitaciones y Mejoras Futuras
 
 ### Limitaciones del Trabajo
 
-Si bien la metodologia utilizada relacionada al paper fue bastante efectiva, es importante considerar los siguientes factores potencialmente limitantes que se consiguieron durante la elaboracion de este trabajo:
+Si bien la metodología utilizada relacionada al paper fue bastante efectiva, es importante considerar los siguientes factores potencialmente limitantes que se consiguieron durante la elaboración de este trabajo:
 - **Tamaño y diversidad del dataset usado**: El dataset de defectos de cuero de Kaggle utilizado es relativamente pequeño y podría no cubrir toda la variabilidad de defectos presentes en entornos industriales reales. Esto puede limitar la capacidad de generalización del modelo ante defectos no vistos o condiciones de iluminación/captura diferentes.
-- **Validación cuantitativa en MVTec**: La validación sobre el dataset MVTec AD es principalmente cualitativa, siguiendo la metodología del paper, por lo que no se reportan métricas cuantitativas de segmentación o localización de anomalías en este dominio, por lo que se utilizo un metodo de umbrales de anomalia anteriormente explicados.
+- **Validación cuantitativa en MVTec**: La validación sobre el dataset MVTec AD es principalmente cualitativa, siguiendo la metodología del paper, por lo que no se reportan métricas cuantitativas de segmentación o localización de anomalías en este dominio, por lo que se utilizó un método de umbrales de anomalía anteriormente explicados.
 - **Dependencia de hardware**: El entrenamiento y la inferencia eficientes requieren GPU con suficiente memoria, lo que puede limitar la reproducibilidad en equipos con recursos limitados de VRAM.
 - **Ajuste de umbrales**: La selección de umbrales óptimos para la detección de anomalías puede requerir ajuste manual y arbitrario el cual puede no ser robusto ante cambios en la distribución de datos.
 - **Explicabilidad**: Aunque se generan mapas de calor, la interpretabilidad de las decisiones del modelo ViT sigue siendo limitada en comparación con métodos más tradicionales o modelos explícitamente diseñados para interpretabilidad.
@@ -502,7 +502,7 @@ Si bien la metodologia utilizada relacionada al paper fue bastante efectiva, es 
 - **Almacenamiento**: SSD con 20GB+ libres
 
 ### Software
-- **Sistema Operativo**: 
+- **Sistema Operativo**:
   - Ubuntu 18.04+ / Windows 10+ / macOS 10.15+
 - **Python**: 3.8 - 3.11
 - **CUDA**: 11.0+ (si se usa GPU NVIDIA)
